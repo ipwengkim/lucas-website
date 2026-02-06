@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sci-Fi Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="scan-overlay"></div>
+    <div class="container">
+        <header class="hud-header">
+            <div class="logo">SCAN-X <span class="version">v2.0</span></div>
+            <div class="status-indicator">ONLINE</div>
+        </header>
+
+        <main class="main-interface">
+            <div class="camera-container" id="cameraContainer">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas" style="display:none;"></canvas>
+                <div class="scanner-line"></div>
+                <div class="corner tl"></div>
+                <div class="corner tr"></div>
+                <div class="corner bl"></div>
+                <div class="corner br"></div>
+                <div class="instruction-text">ALIGN DOCUMENT</div>
+            </div>
+
+            <div class="preview-container hidden" id="previewContainer">
+                <img id="capturedImage" src="" alt="Captured">
+                <div class="corner tl"></div>
+                <div class="corner tr"></div>
+                <div class="corner bl"></div>
+                <div class="corner br"></div>
+            </div>
+
+            <div class="controls">
+                <button id="btnCapture" class="cyber-btn">
+                    <i class="fas fa-camera"></i> SCAN
+                </button>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <button id="btnUpload" class="cyber-btn secondary">
+                    <i class="fas fa-upload"></i> UPLOAD
+                </button>
+                <div id="actionControls" class="hidden">
+                    <button id="btnRetake" class="cyber-btn warning">
+                        <i class="fas fa-redo"></i> RETRY
+                    </button>
+                    <button id="btnConvert" class="cyber-btn success">
+                        <i class="fas fa-file-pdf"></i> PDF
+                    </button>
+                </div>
+            </div>
+        </main>
+        
+        <div class="scan-lines"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
